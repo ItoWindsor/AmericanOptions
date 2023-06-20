@@ -9,6 +9,6 @@ def brownian_motion(T: float, N: int, d: int):
         return np.insert(np.random.normal(scale=np.sqrt(T / N), size=(d, N)).cumsum(axis=1), 0, 0, axis=1)
 
 
-payoff_call = lambda x, K: (x - K) * (x - K >= 0)
-payoff_put = lambda x, K: (K - x) * (K - x >= 0)
+payoff_call = lambda STOCK_PRICE, K: (STOCK_PRICE - K) * (STOCK_PRICE - K >= 0)
+payoff_put = lambda STOCK_PRICE, K: (K - STOCK_PRICE) * (K - STOCK_PRICE >= 0)
 BS_process = lambda x0, r, sigma, t, W: x0 * np.exp((r - (sigma ** 2) / 2) * t + sigma * W)
